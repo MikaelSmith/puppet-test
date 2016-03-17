@@ -1,0 +1,6 @@
+fixtures:
+  forge_modules:
+    stdlib: 'puppetlabs-stdlib'
+    ntp: 'puppetlabs-ntp'
+  symlinks:
+    test: "#{source_dir}"
