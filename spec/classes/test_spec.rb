@@ -8,6 +8,26 @@ describe 'test', :type => :class  do
         {
           :puppetversion => Puppet.version,
           :kernel => 'Linux',
+          :kernelmajversion => '3.10',
+          :kernelrelease => '3.10.0-327.10.1.el7.x86_64',
+          :kernelversion => '3.10.0',
+          :os => {
+            :architecture => "x86_64",
+            :family => "RedHat",
+            :hardware => "x86_64",
+            :name => "CentOS",
+            :release => {
+              :full => "7.2.1511",
+              :major => "7",
+              :minor => "2"
+            }
+          },
+          :lsbdistcodename => 'Final',
+          :lsbdistdescription => 'CentOS release 6.5 (Final)',
+          :lsbdistid => 'CentOS',
+          :lsbdistrelease => '6.5',
+          :lsbmajdistrelease => '6',
+          :lsbminordistrelease => '5',
         }
       end
     context "on CentOS" do

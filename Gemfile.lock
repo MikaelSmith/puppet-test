@@ -46,7 +46,7 @@ PLATFORMS
 
 DEPENDENCIES
   facter
-  puppet (= 4.2.0)
+  puppet
   puppet-lint
   puppetlabs_spec_helper
 
