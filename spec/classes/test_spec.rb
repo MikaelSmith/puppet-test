@@ -1,13 +1,26 @@
 require 'spec_helper'
+
+provider_class = Puppet::Type.type(:package).provider(:rpm)
+
 describe 'test', :type => :class  do
   context "Linux defaults" do
-    let :facts do
-      {
-        :puppetversion => Puppet.version,
-        :kernel => 'Linux',
-      }
-    end
+      let :facts do
+        {
+          :puppetversion => Puppet.version,
+          :kernel => 'Linux',
+        }
+      end
     context "on CentOS" do
+      let(:resource) do
+        Puppet::Type.type(:package).new(
+          :provider => 'rpm'
+        )
+      end
+      let :provider do
+        provider = provider_class.new
+        provider.resource = resource
+        provider
+      end
       let :facts do
         super().merge({
           :osfamily => 'RedHat',
