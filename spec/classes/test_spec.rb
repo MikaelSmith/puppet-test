@@ -11,10 +11,9 @@ describe 'test', :type => :class  do
       end
     context "on CentOS" do
       before do
-        Puppet::Confine::Exists.any_instance.stubs(:which).returns(nil)
-        Puppet::Confine::Exists.any_instance.stubs(:which).with('rpm').returns('/bin/rpm')
-        Puppet::Confine::Exists.any_instance.stubs(:which).with('yum').returns('/bin/yum')
+        Puppet::Type.type(:package).stubs(:defaultprovider).returns(Puppet::Type.type(:package).provider(:yum))
       end
+
       let :facts do
         super().merge({
           :osfamily => 'RedHat',
